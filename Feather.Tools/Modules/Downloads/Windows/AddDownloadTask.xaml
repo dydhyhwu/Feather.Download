@@ -1,0 +1,32 @@
+﻿<Window x:Class="Feather.Tools.Modules.Downloads.Windows.AddDownloadTask"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Feather.Tools.Modules.Downloads.Windows"
+        mc:Ignorable="d"
+        Title="AddDownloadTask" WindowStyle="None" Height="100px" Width="300" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+    <Border BorderBrush="#0099FF" BorderThickness="1" CornerRadius="2">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30px"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="10px"/>
+                <ColumnDefinition Width="70px"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="10px"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Grid.Row="1" Grid.Column="1" Text="下载链接：" />
+            <TextBox Grid.Row="1" Grid.Column="2" Width="100px" />
+
+            <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="2">
+                <Button Content="下载" Style="{StaticResource BtnDefault}" />
+                <Button Content="取消" Style="{StaticResource BtnDefault}" Click="BtnCacel_Click" />
+            </StackPanel>
+        </Grid>
+    </Border>
+</Window>
