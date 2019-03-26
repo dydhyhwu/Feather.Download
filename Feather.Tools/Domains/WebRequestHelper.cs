@@ -18,5 +18,10 @@ namespace Feather.Tools.Domains
                 return value;
             }
         }
+
+        public static Target Post<Target>(string url, object param)
+        {
+            return JsonConvert.DeserializeObject<Target>(Post(url, param));
+        }
     }
 }

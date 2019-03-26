@@ -21,10 +21,10 @@
             </Grid.ColumnDefinitions>
 
             <TextBlock Grid.Row="1" Grid.Column="1" Text="下载链接：" />
-            <TextBox Grid.Row="1" Grid.Column="2" Width="100px" />
+            <TextBox Grid.Row="1" Grid.Column="2" Width="100px" Text="{Binding Url, Mode=TwoWay}" />
 
             <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="2">
-                <Button Content="下载" Style="{StaticResource BtnDefault}" />
+                <Button Content="下载" Style="{StaticResource BtnDefault}" Click="BtnConfirm_Click" />
                 <Button Content="取消" Style="{StaticResource BtnDefault}" Click="BtnCacel_Click" />
             </StackPanel>
         </Grid>

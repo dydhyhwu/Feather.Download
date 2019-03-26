@@ -94,11 +94,12 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Modules\Downloads\Application\Domains\Class1.cs" />
+    <Compile Include="Modules\Downloads\Application\Domains\Aria2TellStatusDto.cs" />
     <Compile Include="Modules\Downloads\Application\Services\IAria2JsonRpcService.cs" />
     <Compile Include="Modules\Downloads\Downloader.xaml.cs">
       <DependentUpon>Downloader.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Modules\Downloads\Models\AddTaskModel.cs" />
     <Compile Include="Modules\Downloads\Models\DownloadTaskModel.cs" />
     <Compile Include="Modules\Downloads\Pages\TaskList.xaml.cs">
       <DependentUpon>TaskList.xaml</DependentUpon>

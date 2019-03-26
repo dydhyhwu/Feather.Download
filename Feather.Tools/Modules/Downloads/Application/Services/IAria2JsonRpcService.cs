@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Feather.Tools.Domains;
+using Feather.Tools.Modules.Downloads.Application.Domains;
 using Newtonsoft.Json;
 
 namespace Feather.Tools.Modules.Downloads.Application.Services
@@ -13,9 +14,10 @@ namespace Feather.Tools.Modules.Downloads.Application.Services
 
     public class Aria2JsonRpcService : IAria2JsonRpcService
     {
+        private static string _host = "http://localhost:6800/jsonrpc";
         public object AddUri(string url)
         {
-            return WebRequestHelper.Post("http://localhost:6800/jsonrpc", new Aria2RpcDto()
+            return WebRequestHelper.Post(_host, new Aria2RpcDto()
             {
                 Method = "aria2.addUri",
                 Params = new List<List<string>>() { new List<string>() { url } }
@@ -24,7 +26,11 @@ namespace Feather.Tools.Modules.Downloads.Application.Services
 
         public object tellStatus(string gid)
         {
-            throw new System.NotImplementedException();
+            return WebRequestHelper.Post<Aria2ResultDto<Aria2TellStatusDto>>(_host, new Aria2RpcDto()
+            {
+                Method = "aria2.tellStopped",
+                Params = new List<int>() { 0, 10 }
+            });
         }
     }
 
@@ -34,7 +40,7 @@ namespace Feather.Tools.Modules.Downloads.Application.Services
         public string Jsonrpc { get; set; } = "2.0";
 
         [JsonProperty("id")]
-        public string Id { get; set; } = Guid.NewGuid().ToString();
+        public string Id { get; set; } = "Feather.Downloader";
 
         [JsonProperty("method")]
         public string Method { get; set; }
