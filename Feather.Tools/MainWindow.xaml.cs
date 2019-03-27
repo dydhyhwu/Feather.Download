@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Feather.Tools.Application.Presentation;
 using Feather.Tools.Modules.Downloads;
 using Feather.Tools.Modules.Downloads.Application.Services;
 
@@ -34,6 +35,12 @@ namespace Feather.Tools
             {
                 Content = new Downloader()
             };
+        }
+
+        private void MainWindow_OnClosed(object sender, EventArgs e)
+        {
+            ApplicationDelegate.Exit();
+            System.Environment.Exit(0);
         }
     }
 }

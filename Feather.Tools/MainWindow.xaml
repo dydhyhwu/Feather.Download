@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Feather.Tools"
         xmlns:modules="clr-namespace:Feather.Tools.Modules.Downloads"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" WindowStartupLocation="CenterScreen">
+        Title="MainWindow" Height="450" Width="800" WindowStartupLocation="CenterScreen" Closed="MainWindow_OnClosed">
     <Grid>
         <ContentControl Name="main_content">
 

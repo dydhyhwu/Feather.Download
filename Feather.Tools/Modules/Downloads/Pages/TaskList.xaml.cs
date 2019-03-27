@@ -24,5 +24,10 @@ namespace Feather.Tools.Modules.Downloads.Pages
         {
             InitializeComponent();
         }
+
+        public TaskList(Page parent) : this()
+        {
+            this.DataContext = parent.DataContext;
+        }
     }
 }

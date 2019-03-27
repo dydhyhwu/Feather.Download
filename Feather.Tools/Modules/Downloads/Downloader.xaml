@@ -36,12 +36,14 @@
             </StackPanel>
             <StackPanel Grid.Row="2">
                 <Button Content="新建下载" Click="BtnDownload_Click" Style="{StaticResource BtnDefault}" />
-                <Button Content="设置" Style="{StaticResource BtnDefault}" />
+                <Button Content="{Binding Speed, Mode=OneWay}" Style="{StaticResource BtnDefault}" />
             </StackPanel>
         </Grid>
 
         <Grid Grid.Column="1" Margin="3,5">
-            <ContentControl Name="main_content"></ContentControl>
+            <ScrollViewer>
+                <ContentControl Name="main_content"></ContentControl>
+            </ScrollViewer>
         </Grid>
     </Grid>
 </Page>

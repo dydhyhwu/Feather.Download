@@ -66,6 +66,8 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Application\Presentation\GlobalDelegate.cs" />
+    <Compile Include="Application\Services\IAria2Engine.cs" />
     <Compile Include="Domains\BindingModel.cs" />
     <Compile Include="Domains\WebRequestHelper.cs" />
     <Compile Include="MainWindow.xaml.cs">
@@ -100,6 +102,7 @@
       <DependentUpon>Downloader.xaml</DependentUpon>
     </Compile>
     <Compile Include="Modules\Downloads\Models\AddTaskModel.cs" />
+    <Compile Include="Modules\Downloads\Models\Aria2Model.cs" />
     <Compile Include="Modules\Downloads\Models\DownloadTaskModel.cs" />
     <Compile Include="Modules\Downloads\Pages\TaskList.xaml.cs">
       <DependentUpon>TaskList.xaml</DependentUpon>
