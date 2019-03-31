@@ -11,6 +11,10 @@ namespace Feather.Tools.Modules.Downloads.Application.Domains
         public Int64 downloadSpeed { get; set; }
         public int errorCode { get; set; }
         public string errorMessage { get; set; }
+
+        /// <summary>
+        /// 唯一标识，用作更新
+        /// </summary>
         public string gid { get; set; }
         public int numPieces { get; set; }
         public Int64 pieceLength { get; set; }

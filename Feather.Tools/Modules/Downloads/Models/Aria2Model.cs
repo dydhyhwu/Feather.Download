@@ -57,6 +57,8 @@ namespace Feather.Tools.Modules.Downloads.Models
         private Int64 _completed;
         private Int64 _total;
         private Int64 _speed;
+        private string _gid;
+        private string _path;
 
         public Int64 Completed
         {
@@ -83,6 +85,26 @@ namespace Feather.Tools.Modules.Downloads.Models
             {
                 _speed = value;
                 OnPropertyChanged("Speed");
+            }
+        }
+
+        public string Gid
+        {
+            get { return _gid;}
+            set
+            {
+                _gid = value;
+                OnPropertyChanged("Gid");
+            }
+        }
+
+        public string Path
+        {
+            get { return _path;}
+            set
+            {
+                _path = value;
+                OnPropertyChanged("Path");
             }
         }
     }

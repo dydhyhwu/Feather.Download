@@ -97,6 +97,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Modules\Downloads\Application\Domains\Aria2TellStatusDto.cs" />
+    <Compile Include="Modules\Downloads\Application\Domains\Converter\FileSizeConverter.cs" />
     <Compile Include="Modules\Downloads\Application\Services\IAria2JsonRpcService.cs" />
     <Compile Include="Modules\Downloads\Downloader.xaml.cs">
       <DependentUpon>Downloader.xaml</DependentUpon>

@@ -67,7 +67,6 @@ namespace Feather.Tools.Modules.Downloads
                 {
                     try
                     {
-                        this.Dispatcher.BeginInvoke(new Action(clear_active_task));
                         var dto = service.TellActive();
                         foreach (var item in dto)
                         {
@@ -76,12 +75,14 @@ namespace Feather.Tools.Modules.Downloads
                                 Completed = item.completedLength,
                                 Total = item.totalLength,
                                 Speed = item.downloadSpeed,
+                                Gid = item.gid,
+                                Path = item.files.First().path,
                             };
                             this.Dispatcher.BeginInvoke(new Action<TaskModel>(add_active_task), task);
                         }
 
                         _model.Speed = dto.Count;
-                        Thread.Sleep(1000);
+                        Thread.Sleep(200);
                     }
                     catch (Exception e)
                     {
@@ -93,14 +94,18 @@ namespace Feather.Tools.Modules.Downloads
 
         #region 线程更新
 
-        private void clear_active_task()
-        {
-            _model.ActiveTaskList.Clear();
-        }
-
         private void add_active_task(TaskModel task)
         {
-            _model.ActiveTaskList.Add(task);
+            if (_model.ActiveTaskList.Any(x => x.Gid == task.Gid))
+            {
+                var active = _model.ActiveTaskList.First(x => x.Gid == task.Gid);
+                active.Completed = task.Completed;
+                active.Speed = task.Speed;
+                active.Total = task.Total;
+                active.Path = task.Path;
+            }
+            else
+                _model.ActiveTaskList.Add(task);
         }
 
         #endregion
@@ -111,7 +116,11 @@ namespace Feather.Tools.Modules.Downloads
             var result = dialog.ShowDialog();
             if (result.HasValue && result.Value)
             {
-                var tt = service.AddUri(dialog.DownloadUrl);
+                Task.Factory.StartNew(() =>
+                {
+                    var tt = service.AddUri(dialog.DownloadUrl);
+                });
+
             }
         }
     }
